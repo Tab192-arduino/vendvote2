@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vending Machine Vote</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="banner">JoKo Vend n' Vote</h1>
+
+  <div id="location-selector" class="location-selector">
+    <h2>Select a Vending Machine</h2>
+    <button class="location-btn" data-location="Main Lobby">Main Lobby</button>
+    <button class="location-btn" data-location="Gym Entrance">Gym Entrance</button>
+    <button class="location-btn" data-location="Library Hall">Library Hall</button>
+  </div>
+
+  <div id="voting-interface" class="voting-interface">
+    <div class="card-container">
+      <div class="card" data-name="Doritos">
+        <img src="images/dorito.jpg" alt="Doritos">
+        <h2>Doritos</h2>
+        <p>Chips - $0.75</p>
+      </div>
+      <div class="card" data-name="M&Ms">
+        <img src="images/mnm.jpg" alt="M&Ms">
+        <h2>M&Ms</h2>
+        <p>Candy - $1.25</p>
+      </div>
+      <div class="card" data-name="Sour Candy">
+        <img src="images/sour.jpg" alt="Sour Candy">
+        <h2>Sour Candy</h2>
+        <p>Candy - $1.25</p>
+      </div>
+      <div class="card" data-name="Coke">
+        <img src="images/coke.jpg" alt="Coke">
+        <h2>Coke</h2>
+        <p>Soda - $2.00</p>
+      </div>
+      <div class="card" data-name="Pretzels">
+        <img src="images/pretzel.jpg" alt="Pretzels">
+        <h2>Pretzels</h2>
+        <p>Chips - $0.75</p>
+      </div>
+      <div class="card" data-name="Pringles">
+        <img src="images/pringle.jpg" alt="Pringles">
+        <h2>Pringles</h2>
+        <p>Chips - $0.75</p>
+      </div>
+    </div>
+    <button id="undo-btn" class="undo-btn">Undo Last Vote</button>
+  </div>
+
+  <script src="script.js"></script>
+
+
+  
+</body>
+</html>
