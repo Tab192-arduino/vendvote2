@@ -40,9 +40,43 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    // Mouse events
     card.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
+
+    // Touch events
+    card.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX));
+    card.addEventListener('touchmove', (e) => {
+      onDragMove(e.touches[0].clientX);
+      e.preventDefault();
+    }, { passive: false });
+    card.addEventListener('touchend', (e) => onDragEnd(e.changedTouches[0].clientX));
+
+    // Touch drag logic
+    const onDragStart = (x) => {
+      startX = x;
+      isDragging = true;
+      card.style.transition = 'none';
+    };
+
+    const onDragMove = (x) => {
+      if (!isDragging) return;
+      const deltaX = x - startX;
+      card.style.transform = `translateX(${deltaX}px) rotate(${deltaX / 20}deg)`;
+    };
+
+    const onDragEnd = (x) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const deltaX = x - startX;
+      if (Math.abs(deltaX) > 100) {
+        swipeCard(deltaX > 0 ? 'right' : 'left');
+      } else {
+        card.style.transition = 'transform 0.3s';
+        card.style.transform = 'translateX(0) rotate(0)';
+      }
+    };
   }
 
   function swipeCard(direction) {
